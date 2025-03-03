@@ -24,9 +24,9 @@ RUN pip3 install uv
 RUN uv init
 RUN uv venv
 RUN uv python install 3.12
-RUN uv add psycopg psycopg2-binary pandas xarray dask psycopg2 pyarrow
+RUN uv add psycopg psycopg2-binary pandas xarray dask psycopg2 pyarrow dotenv sqlalchemy joblib tqdm netcdf4
 
 ENV PATH="${PATH}:/home/postgres/pg_bulkload-3.1.20/bin"
 
 RUN ["chmod", "+x", "/home/postgres/entrypoint.sh"]
-ENTRYPOINT ["/home/postgres/entrypoint.sh"]
+RUN ["bash", "/home/postgres/entrypoint.sh"]

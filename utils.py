@@ -9,10 +9,13 @@ dotenv.load_dotenv()
 
 POSTGRES_HOST = os.getenv("POSTGRES_HOST")
 POSTGRES_PORT = os.getenv("POSTGRES_PORT")
-POSTGRES_DB_NAME = os.getenv("POSTGRES_DB_NAME")
+POSTGRES_DB_NAME = os.getenv("POSTGRES_DB")
 POSTGRES_USER = os.getenv("POSTGRES_USER")
 POSTGRES_PASSWORD = os.getenv("POSTGRES_PASSWORD")
 CONTAINER_NAME = os.getenv("CONTAINER_NAME")
+
+def num_rows(hours):
+    return hours * 1038240
 
 def sqlalchemy_connection_string():
     return f"postgresql://{POSTGRES_USER}:{POSTGRES_PASSWORD}@{POSTGRES_HOST}:{POSTGRES_PORT}/{POSTGRES_DB_NAME}"

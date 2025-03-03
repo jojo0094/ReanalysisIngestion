@@ -47,7 +47,7 @@ def main(args):
                 location_id int,
                 latitude float4,
                 longitude float4,
-                total_precipitation float4,
+                total_precipitation float4
             );
         """
 

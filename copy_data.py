@@ -125,12 +125,7 @@ def copy_data_using_psycopg3(n, args):
                 location_id,
                 latitude,
                 longitude,
-                temperature_2m,
-                zonal_wind_10m,
-                meridional_wind_10m,
-                total_cloud_cover,
-                total_precipitation,
-                snowfall
+                total_precipitation
             ) from stdin
             """
         ) as copy, copy_timer:

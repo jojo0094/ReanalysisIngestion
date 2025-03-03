@@ -17,9 +17,10 @@ nc_link = get_nc_link()
 os.system(f"wget -P {CSV_PATH} {nc_link}")
 
 
+
 #list in ./downloadData
-nc_filepaths = [i for i in os.listdir("./downloadData") if i.endswith(".nc")]
-nc_filepaths = [nc_filepaths[0]]
+nc_filepaths = [i for i in os.listdir(CSV_PATH) if i.endswith(".nc")]
+nc_filepaths = [os.path.join(CSV_PATH, i) for i in nc_filepaths]
 
 cols_renamed = {
     "tp": "total_precipitation",
@@ -44,7 +45,9 @@ def weather_dataframe(n):
         df["total_precipitation"] *= 1000  # m to mm
 
         # Convert latitude from [0, 360) degrees East to [-180, 180) degrees East.
-        df.rename(columns={"longitude": "longitude_east"}, inplace=True)
+        df.rename(columns={"longitude": "longitude_east",
+                           "valid_time": "time"
+                           }, inplace=True)
         df["longitude"] = df["longitude_east"].apply(lambda x: x - 360 if x > 180 else x)
         df.drop(columns=["longitude_east"], inplace=True)
 
