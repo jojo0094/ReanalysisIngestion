@@ -1,6 +1,11 @@
 # ReanalysisIngestion
 ETL pipe line for ERA5 reanalysis data
 
+#./Data/images/aigenerated.png
+#display image above
+
+![AI generated image](./Data/images/aigenerated.png)
+
 ## Introduction
 
 This repository contains the code for the ETL pipeline for the ERA5 reanalysis data. The pipeline is designed to download ERA5 Reanalysis and ingest it into a database. The pipeline intened to avoid hours of waiting to query a timeseries for a location. It makes sense the setup a postgres database with the data and query the database for the timeseries.
@@ -22,4 +27,4 @@ The pipeline uses the following tools:
 3. Run the following command to run the pipeline
 ```bash ./run.sh``` and you will see the ingestion process.
 
-You can play around the number of workers in `entrypoint.sh` to see how it affects the ingestion process. I recommend to keep it to larger than 2 now as I can't seem to fix bugs about timer context manager (which is to be used for benchmarking later and to clean up dask client in case).
+You can play around the number of workers in `entrypoint.sh` to see how it affects the ingestion speed. I recommend to keep it to larger than 2 now as I can't seem to fix bugs about timer context manager (which is to be used for benchmarking later and to clean up dask client in case).
