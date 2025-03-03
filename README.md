@@ -8,17 +8,19 @@ ETL pipe line for ERA5 reanalysis data
 
 ## Introduction
 
-This repository contains the code for the ETL pipeline for the ERA5 reanalysis data. The pipeline is designed to download ERA5 Reanalysis and ingest it into a database. The pipeline intened to avoid hours of waiting to query a timeseries for a location. It makes sense the setup a postgres database with the data and query the database for the timeseries.
+This repository contains the code for the ETL pipeline for the ERA5 reanalysis data. The pipeline is designed to download ERA5 Reanalysis and ingest it into a database. The pipeline intended to avoid hours of waiting to query a timeseries for a location. It makes sense to set up a postgres database with the data and query the database for the timeseries.
 
 However, this is not to disregard other potential analytic alternative such as using duckdb to do file-based queries and analysis. I will write a benchmark for different ingestion methods as well as how it compares to the filebased approach. But this is for later.
 
 The pipeline uses the following tools:
-    - Docker
-    - uv python package manager
-    - gcp cloud storage (downloading using CDS API taking too long; therefore I have migrated the downloaded data to GCP bucket once and for all)
-    - Postgres
-    - PgAdmin (to do quick SQL query check or database connection check, and iterate the process)
-    - Bash scripts
+
+- **Docker**
+- **uv** (Python package manager)
+- **Google Cloud Storage** (CDS API downloads were too slow, so data was migrated to a GCP bucket permanently)
+- **PostgreSQL**
+- **pgAdmin** (for quick SQL queries and connection checks)
+- **Bash scripts**
+
 
 ## Run steps
 1. Clone the repository
