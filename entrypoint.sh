@@ -7,9 +7,9 @@
 # }
 #
 
-echo "Waiting for the database server to be ready...sleeping for 2 seconds."
-sleep 5
-
+# echo "Waiting for the database server to be ready...sleeping for 2 seconds."
+# sleep 5
+#
 source .env 
 
 wait_for_db_to_be_ready() {

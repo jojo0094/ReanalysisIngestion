@@ -1,0 +1,44 @@
+services:
+  build:
+    container_name: ${CONTAINER_NAME}-build
+    build: .
+    image: ${IMAGE_NAME}
+    environment:
+      - POSTGRES_DB=${POSTGRES_DB}
+      - POSTGRES_USER=${POSTGRES_USER}
+      - POSTGRES_PASSWORD=${POSTGRES_PASSWORD}
+      - POSTGRES_HOST=postgres  # This is the service name of the Postgres container
+      - POSTGRES_PORT=5432      # Default Postgres port inside the container
+    depends_on:
+      - postgres  # This ensures the build service waits for postgres to be ready
+    command: >
+      bash -c "
+        sleep 5 && 
+        python create_table.py --drop-table --table-type 'regular' && 
+        python copy_data.py --method 'psycopg3' --table-type 'regular' --hours 8760 --workers 5 --benchmarks-file 'benchmarks_copy.csv'
+      "
+  
+  postgres:
+    container_name: ${CONTAINER_NAME}
+    image: postgres:latest  # Use the official Postgres image
+    environment:
+      - POSTGRES_DB=${POSTGRES_DB}
+      - POSTGRES_USER=${POSTGRES_USER}
+      - POSTGRES_PASSWORD=${POSTGRES_PASSWORD}
+    ports:
+      - "5434:5432"  # Mapping ports for external access
+    volumes:
+      - /private/:/private/  # Volume mount if needed for persisting data
+    command: >
+      postgres
+      -c 'min_wal_size=4GB'
+      -c 'max_wal_size=16GB'
+
+  pgAdmin:
+    image: dpage/pgadmin4
+    environment:
+      - PGADMIN_DEFAULT_EMAIL=admin@admin.com
+      - PGADMIN_DEFAULT_PASSWORD=root
+    ports:
+      - "8099:80"
+

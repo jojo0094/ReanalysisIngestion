@@ -28,5 +28,5 @@ RUN uv add psycopg psycopg2-binary pandas xarray dask psycopg2 pyarrow dotenv sq
 
 ENV PATH="${PATH}:/home/postgres/pg_bulkload-3.1.20/bin"
 
-RUN ["chmod", "+x", "/home/postgres/entrypoint.sh"]
-RUN ["bash", "/home/postgres/entrypoint.sh"]
+# RUN ["chmod", "+x", "/home/postgres/entrypoint.sh"]
+# RUN ["bash", "/home/postgres/entrypoint.sh"]
