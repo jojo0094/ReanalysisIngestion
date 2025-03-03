@@ -1,10 +1,8 @@
 # ReanalysisIngestion
 ETL pipe line for ERA5 reanalysis data
 
-#./Data/images/aigenerated.png
-#display image above
 
-![AI generated image](./Data/images/aigenerated.png)
+![AI generated image](./data/images/aigenerated.png)
 
 ## Introduction
 
