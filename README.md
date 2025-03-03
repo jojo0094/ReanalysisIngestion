@@ -16,7 +16,7 @@ The pipeline uses the following tools:
 
 - **Docker**
 - **uv** (Python package manager)
-- **Google Cloud Storage** (CDS API downloads were too slow, so data was migrated to a GCP bucket permanently)
+- **Google Cloud Storage** (CDS API downloads were too slow, so data was migrated to a GCP bucket permanently). If you want to download yourself, use `download.py` (check out cds copernicus  site for api setup)
 - **PostgreSQL**
 - **pgAdmin** (for quick SQL queries and connection checks)
 - **Bash scripts**
