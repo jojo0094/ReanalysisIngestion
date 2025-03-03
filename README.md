@@ -3,6 +3,11 @@ ETL pipe line for ERA5 reanalysis data
 
 
 ![AI generated image](./data/images/aigenerated.png)
+---
+⚠️ **AI-Generated Content Warning:**  
+This image was generated using AI and may not be 100% accurate or representative of real-world systems.
+---
+
 
 ## Introduction
 
