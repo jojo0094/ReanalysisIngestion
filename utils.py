@@ -38,3 +38,11 @@ def get_nc_link() -> str:
     """Currently just one default link"""
     return "https://storage.googleapis.com/era5_reanalysis_nz_tp/total_precipitation_2000.nc"
 
+def get_nc_links(start_year: int, end_year: int) -> list:
+    """Get links for all the years in the range"""
+    links = []
+    for year in range(start_year, end_year + 1):
+        link = f"https://storage.googleapis.com/era5_reanalysis_nz_tp/total_precipitation_{year}.nc"
+        links.append(link)
+    return links
+
