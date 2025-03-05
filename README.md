@@ -29,6 +29,6 @@ The pipeline uses the following tools:
 3. Run the following command to run the pipeline
 ```bash ./run.sh``` and you will see the ingestion process.
 
-You can play around the number of workers in `entrypoint.sh` to see how it affects the ingestion speed. I recommend to keep it to larger than 2 now as I can't seem to fix bugs about timer context manager (which is to be used for benchmarking later and to clean up dask client in case).
+You can play around the number of workers in `entrypoint.sh` to see how it affects the ingestion speed. I recommend to keep it to larger than 1 now as I can't seem to fix bugs about timer context manager (which is to be used for benchmarking later and to clean up dask client in case).
 
 ![Gif](./data/images/reanalysis.gif)
